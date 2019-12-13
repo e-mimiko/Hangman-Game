@@ -3,7 +3,14 @@
 # tries or the computer wins.
 
 import random
-words=["Paper","Blanket","Vaseline","White","Pink","Candle", "Bread", "Sardine"]
+
+def getWords():
+    Hangmanwords=open("Hangmanwords.txt","r")
+    words=Hangmanwords.readlines()
+    for i in range(len(words)):
+        words[i] = words[i].rstrip("\n")
+    Hangmanwords.close()
+    return words
 
 def Welcome():
     response=input ("WELCOME TO HANGMAN!\nWOULD YOU LIKE TO PLAY? YES/NO: ")
@@ -12,11 +19,12 @@ def Welcome():
 def play():
     YesOrNo=Welcome()
     if YesOrNo == "Yes":
-        Hangman(words)
+        Hangman()
     else:
         print ("You chose NO, come back again, Bye!")
 
-def Hangman(words):
+def Hangman():
+    words=getWords()
     word=random.choice(words)
     soloLetters=list(word)
     hang=list("-" * len(word))
@@ -34,8 +42,11 @@ def Hangman(words):
         else:
             i+=1
     if i > 6:
-        print ("GAME OVER! Sorry you used all your tries")
+        print ("GAME OVER! Sorry you used all your tries. Your word was -",
+               word.upper(), "- Sorry!")
     elif hang==list(word):
         print ("YOU WIN! Your word was ", word.upper(), "!")
 
+#Top Level
+        
 play()
