@@ -3,7 +3,7 @@
 # tries or the computer wins.
 
 import random
-words=["Paper","Blanket","Vaseline","White","Pink","Candle", "Bread"]
+words=["Paper","Blanket","Vaseline","White","Pink","Candle", "Bread", "Sardine"]
 
 def Welcome():
     response=input ("WELCOME TO HANGMAN!\nWOULD YOU LIKE TO PLAY? YES/NO: ")
