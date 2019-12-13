@@ -3,7 +3,7 @@
 # tries or the computer wins.
 
 import random
-words=["Paper","Blanket","Vaseline","White","Pink","Candle"]
+words=["Paper","Blanket","Vaseline","White","Pink","Candle", "Bread"]
 
 def Welcome():
     response=input ("WELCOME TO HANGMAN!\nWOULD YOU LIKE TO PLAY? YES/NO: ")
@@ -15,7 +15,7 @@ def play():
         Hangman(words)
     else:
         print ("You chose NO, come back again, Bye!")
-    
+
 def Hangman(words):
     word=random.choice(words)
     soloLetters=list(word)
@@ -39,10 +39,3 @@ def Hangman(words):
         print ("YOU WIN! Your word was ", word.upper(), "!")
 
 play()
-
-            
-
-            
-        
-    
-    
